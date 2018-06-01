@@ -1,0 +1,44 @@
+{
+  "name": "hapi-example",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "NODE_ENV=development node server",
+    "test": "lab -a code -L",
+    "lint": "eslint .",
+    "build:css": "postcss lib/public/css/main.css -o lib/public/css/main.min.css --use cssnano --no-map",
+    "build:js": "uglifyjs lib/public/js/main.js -o lib/public/js/main.min.js",
+    "build": "npm run build:css && npm run build:js"
+  },
+  "dependencies": {
+    "bell": "^9.3.0",
+    "boom": "7.x.x",
+    "handlebars": "4.x.x",
+    "hapi-auth-cookie": "^9.0.0",
+    "haute-couture": "3.x.x",
+    "inert": "5.x.x",
+    "joi": "13.x.x",
+    "vision": "5.x.x"
+  },
+  "devDependencies": {
+    "code": "5.x.x",
+    "confidence": "3.x.x",
+    "dotenv": "4.x.x",
+    "cssnano": "3.x.x",
+    "eslint": "4.x.x",
+    "eslint-config-hapi": "11.x.x",
+    "eslint-plugin-hapi": "4.x.x",
+    "glue": "5.x.x",
+    "hapi": "17.x.x",
+    "lab": "15.x.x",
+    "postcss": "6.x.x",
+    "postcss-cli": "4.x.x"
+  }
+}

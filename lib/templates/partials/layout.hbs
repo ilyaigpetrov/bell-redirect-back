@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{{title}}</title>
+
+        {{#if options.developmentMode}}
+            <link rel="stylesheet" href="{{baseURI}}/public/css/main.css">
+        {{else}}
+            <link rel="stylesheet" href="{{baseURI}}/public/css/main.min.css">
+        {{/if}}
+
+        <style type="text/css">
+            body {
+                margin: 0 auto;
+                max-width: 40rem;
+                line-height: 1.6;
+                font-size: 18px;
+                padding: 0 10px;
+            }
+            .site-header {
+              margin-bottom: 2.5rem;
+            }
+            body, input {
+                color: #444;
+            }
+            h1, h2, h3 {
+                line-height: 1.2;
+                text-align: center;
+                font-size: 2.5rem;
+                color: black;
+            }
+            a {
+                color: #07C;
+            }
+            a:hover {
+                text-decoration: none;
+                border-bottom: 1px dotted;
+            }
+            a:not(:hover) {
+                text-decoration: none;
+            }
+            a::before {
+                content: '[';
+            }
+            a::after {
+                content: ']';
+            }
+            .selected {
+                color: #444;
+                text-decoration: underline !important;
+                border: 0 !important;
+            }
+            {{#> styles-block}}
+                {{!-- Custom styles go here. --}}
+            {{/styles-block}}
+        </style>
+
+        {{#> head-block}}
+            {{!-- Custom <head> content per page could be added. --}}
+        {{/head-block}}
+    </head>
+
+    <body>
+      <nav class="site-header">
+          <aside style="float: right">
+              {{#if credentials}}
+                  {{credentials.email}}
+                  <a href="/logout/">Logout</a>
+              {{else}}
+                  <a href="/login/">Login</a>
+              {{/if}}
+          </aside>
+          <div>
+              {{#replace (concat 'href="' currentPathname '"') 'class="selected" title="You are here"'}}
+                  <a href="/">Main</a>
+                  <a href="/dashboard/">Dashboard</a>
+              {{/replace}}
+          </div>
+      </nav>
+        {{#> content}}
+            {{!-- Content goes here. --}}
+        {{/content}}
+
+        {{#if options.developmentMode}}
+            <script src="{{baseURI}}/public/js/main.js"></script>
+        {{else}}
+            <script src="{{baseURI}}/public/js/main.min.js"></script>
+        {{/if}}
+
+        {{#> scripts-block}}
+            {{!-- Custom scripts per page can be added. --}}
+        {{/scripts-block}}
+    </body>
+</html>
