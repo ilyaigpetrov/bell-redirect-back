@@ -1,3 +1,7 @@
+# Not Done
+
+- [ ] Nested redirects, e.g. `/unauthed-redirector/?redirect_to_path=/unauthed-redirector?redirect_to_path=/unauthed-redirector` (must be percent encoded to work I guess).
+
 # Install
 
 In google consle use this redirect url (trailing slash is important):
@@ -8,7 +12,6 @@ vim .env
 npm install
 npm start
 ```
-
 
 # Manual Testing
 
